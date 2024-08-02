@@ -32,7 +32,6 @@ const inputValue = ref(props.modelValue);
 const previousValue = ref(props.modelValue);
 const errorMessage = ref('');
 
-
 const isInvalid = (value) => {
   const regex = /^\d*(\.\d{0,18})?$/;
   return !regex.test(value);
