@@ -48,7 +48,7 @@ watch(
   },
   {
     immediate: true
-  }
+  },
 );
 
 const handleKeydown = (event) => {
