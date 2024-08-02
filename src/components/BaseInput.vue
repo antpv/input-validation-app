@@ -32,14 +32,19 @@ const inputValue = ref(props.modelValue);
 const previousValue = ref(props.modelValue);
 const errorMessage = ref('');
 
-watch(() => props.modelValue, (newValue) => {
-  if (isInvalid(newValue)) {
-    inputValue.value = '';
-    emit('update:modelValue', '');
-  } else {
-    inputValue.value = newValue;
+watch(
+  () => props.modelValue, (newValue) => {
+    if (isInvalid(newValue)) {
+      inputValue.value = '';
+      emit('update:modelValue', '');
+    } else {
+      inputValue.value = newValue;
+    }
+  },
+  {
+    immediate: true
   }
-});
+);
 
 const handleKeydown = (event) => {
   previousValue.value = event.target.value;
