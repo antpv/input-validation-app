@@ -32,6 +32,12 @@ const inputValue = ref(props.modelValue);
 const previousValue = ref(props.modelValue);
 const errorMessage = ref('');
 
+
+const isInvalid = (value) => {
+  const regex = /^\d*(\.\d{0,18})?$/;
+  return !regex.test(value);
+};
+
 watch(
   () => props.modelValue, (newValue) => {
     if (isInvalid(newValue)) {
@@ -58,11 +64,6 @@ const handleInput = (event) => {
     emit('update:modelValue', event.target.value);
     errorMessage.value = '';
   }
-};
-
-const isInvalid = (value) => {
-  const regex = /^\d*(\.\d{0,18})?$/;
-  return !regex.test(value);
 };
 </script>
 
