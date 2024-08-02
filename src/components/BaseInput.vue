@@ -39,6 +39,7 @@ const isInvalid = (value) => {
 
 watch(
   () => props.modelValue, (newValue) => {
+    errorMessage.value = '';
     if (isInvalid(newValue)) {
       inputValue.value = '';
       emit('update:modelValue', '');
