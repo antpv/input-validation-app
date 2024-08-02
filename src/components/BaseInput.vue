@@ -60,6 +60,7 @@ const handleInput = (event) => {
     inputValue.value = event.target.value = previousValue.value;
     errorMessage.value = 'Лише числа й одна десяткова крапка, кількість десяткових знаків до 18';
   } else {
+    inputValue.value = event.target.value;
     emit('update:modelValue', event.target.value);
     errorMessage.value = '';
   }
